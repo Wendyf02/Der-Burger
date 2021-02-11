@@ -1,8 +1,11 @@
 INSERT INTO burgers (burger_name, devoured) 
-VALUES ('');
+VALUES ("Double Gut Burger", false);
 
-INSERT INTO cats (name) VALUES ('Charlie');
-INSERT INTO cats (name, sleepy) VALUES ('Poppy', true);
-INSERT INTO cats (name, sleepy) VALUES ('Oscar', true);
-INSERT INTO cats (name, sleepy) VALUES ('Smudge', true);
-INSERT INTO cats (name) VALUES ('Daisy');
+INSERT INTO burgers (burger_name, devoured) 
+VALUES ("Big Mac Gut Burger", false);
+
+INSERT INTO burgers (burger_name, devoured) 
+VALUES ("Gut Veggie Burger", true);
+
+INSERT INTO burgers (burger_name, devoured) 
+VALUES ("Gut Double Veggie Burger", true);
