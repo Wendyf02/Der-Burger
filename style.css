@@ -1,0 +1,45 @@
+body {
+    background-image: url("public/assets/img/wood_plank_old.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/*-------Body----*/
+body{
+   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+   font-size: 20px;
+}
+
+
+/*----Jumbotron----*/
+
+#title {
+    font-size: 60px;
+
+}
+
+.lead {
+      font-size: 24px;
+}
+
+
+#devour-Card-header {
+   background-color: rgb(149, 218, 22);
+
+}
+
+#devoured-Card-header {
+    background-color: rgb(209, 102, 14);
+ 
+ }
+
+ .footer-body {
+   background-color: rgb(66, 66, 64);
+
+
+ }
+
+ .devoured-card .footer {
+     border-style: solid;
+     border-color:  rgb(66, 66, 64);
+ }
