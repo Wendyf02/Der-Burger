@@ -13,23 +13,31 @@ body{
 
 /*----Jumbotron----*/
 
+/* .jumbotron {
+    background-color: rgb(66, 66, 64);
+} */
+
 #title {
     font-size: 60px;
-
+    background-color: rgb(66, 66, 64);
 }
 
 .lead {
       font-size: 24px;
+      background-color: rgb(66, 66, 64);
 }
 
+#submit-card {
+    background-color: rgb(66, 66, 64);
+}
 
 #devour-Card-header {
-   background-color: rgb(149, 218, 22);
+   background-color: rgb(66, 66, 64);
 
 }
 
 #devoured-Card-header {
-    background-color: rgb(209, 102, 14);
+    background-color: rgb(66, 66, 64);
  
  }
 
