@@ -25,6 +25,7 @@
 
 </head>
 <body>
+
     <div class="container"> 
         <!-------jumbotron----->
         <div class="jumbotron text-center bg-danger text-light">
@@ -62,10 +63,15 @@
                           Burgers to Devour
                         </div>
                <!----------Burgers to be Devour---------->
-                      <div class="card-body">
-                        
-
-                      </div>     
+                        <div class="card-body">
+                            <ul class="list-group">
+                               <!-- {{#each burgers}}
+                               {{#unless devoured}}
+                               {{> burgers/burger-block devoured=true}}
+                               {{#unless}}
+                               {{/each}} -->
+                            </ul>
+                        </div>     
                     </div>
                 </div>
         
@@ -77,10 +83,14 @@
                     </div>
             <!----------Devoured Burgers here---------->
                     <div class="card-body">
-                            
-    
+                        <ul class="list-group">
+                            <!-- {{#each burgers}}
+                            {{#unless devoured}}
+                            {{> burgers/burger-block devoured=false}}
+                            {{#if}}
+                            {{/each}} -->
+                        </ul>
                     </div>     
-                   
                 </div>
             </div>
         </div>
@@ -98,10 +108,6 @@
             </div> 
         </div>
     </div>
-
-
-
-
 
 
 

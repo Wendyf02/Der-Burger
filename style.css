@@ -27,9 +27,14 @@ body{
       background-color: rgb(66, 66, 64);
 }
 
+/*-------Submit card----*/
+
 #submit-card {
     background-color: rgb(66, 66, 64);
 }
+
+
+/*-------Devoured cards----*/
 
 #devour-Card-header {
    background-color: rgb(66, 66, 64);
@@ -39,15 +44,23 @@ body{
 #devoured-Card-header {
     background-color: rgb(66, 66, 64);
  
- }
+}
 
- .footer-body {
+li {
+    padding: 5px;
+    margin: 5px;
+    background: #faebd7;
+}
+
+/*-------Footer----*/
+
+.footer-body {
    background-color: rgb(66, 66, 64);
 
 
- }
+}
 
- .devoured-card .footer {
+.devoured-card .footer {
      border-style: solid;
      border-color:  rgb(66, 66, 64);
- }
+}

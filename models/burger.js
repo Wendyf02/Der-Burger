@@ -18,13 +18,10 @@ const burger = {
 // Delete burger from database
 delete(condition, cb) {
   orm.delete('burgers', condition, (res) => cb(res));
+
 },
 
-
-
 };
-
-
 
 // Export the database functions for the controller (catsController.js).
 module.exports = burger;
