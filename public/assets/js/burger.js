@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
   if (changeSleepBtns) {
     changeSleepBtns.forEach((button) => {
       button.addEventListener('click', (e) => {
-        console.log('test');
         // Grabs the id of the element that goes by the name, "id"
         const id = e.target.getAttribute('data-id');
         const newSleep = e.target.getAttribute('data-newsleep');
@@ -45,6 +44,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
   // CREATE
   const createCatBtn = document.getElementById('create-form');
+   console.log(createCatBtn)
 
   if (createCatBtn) {
     createCatBtn.addEventListener('submit', (e) => {
@@ -76,24 +76,26 @@ document.addEventListener('DOMContentLoaded', (event) => {
       });
     });
   }
+
+  // DELETE
+  const deleteCatBtns = document.querySelectorAll('.delete-burger');
+
+  // Set up the event listeners for each delete button
+  deleteCatBtns.forEach((button) => {
+    button.addEventListener('click', (e) => {
+      const id = e.target.getAttribute('data-id');
+
+      // Send the delete request
+      fetch(`/api/burgers/${id}`, {
+        method: 'DELETE',
+      }).then((res) => {
+        console.log(res);
+        console.log(`Deleted burger: ${id}`);
+
+        // Reload the page
+        location.reload();
+      });
+    });
+  });
+
 });
-
-//Delete 
-
-const deleteCatBtns = document.querySelectorAll(".delete-cat");
-deleteCatBtns.forEach(button) =>{
-    button.addEventListener("click",(e)=> {
-       const id = e,target.getAttribute("data-id");
-       fetch(`/api/cats/%(id)`, {
-            method: 'DELETE',
-
-       }).then(
-         (res)=> {
-           console.log(res);
-           console.log('deleted')
-         }
-       )
-
-    })
-
-}

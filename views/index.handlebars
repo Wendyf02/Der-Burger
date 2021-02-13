@@ -3,9 +3,9 @@
 <h2>Cats that are not sleepy!</h2>
 
 <ul>
-  {{#each cats}}
-  {{#unless sleepy}}
-  {{> cats/cat-block sleep=true}}
+  {{#each burgers}}
+  {{#unless devoured}}
+
   {{/unless}}
   {{/each}}
 </ul>
@@ -13,15 +13,15 @@
 <h2>Cats that are sleepy!</h2>
 
 <ul>
-  {{#each cats}}
-  {{#if sleepy}}
-  {{> cats/cat-block sleep=false}}
+  {{#each burgers}}
+  {{#if devoured}}
+  {{this.burger_name}}
   {{/if}}
   {{/each}}
 </ul>
 
 <h2>Add a Cat</h2>
-<form id="create-form">
+<form>
 
   <div class="form-group">
     <label for="ca">Cat Name:</label>
@@ -34,5 +34,5 @@
     <input type="radio" name="sleepy" value="0" id="awake"> Awake
   </div>
 
-  <button type="submit">Add Cat</button>
+  <button id="create-form">Add Cat</button>
 </form>
