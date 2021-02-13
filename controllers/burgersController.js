@@ -1,7 +1,9 @@
+// require express
 const express = require('express');
-const burger = require('../models/burger.js');
 
 const router = express.Router();
+
+const burger = require('../models/burger.js');
 
 
 // Create all our routes and set up logic within those routes where required.
@@ -43,14 +45,20 @@ router.put('/api/burgers/:id', (req, res) => {
 });
 
 
-// delete burger
+// Delete burger to throw away burger
+router.delete('/api/burgers/:id', (req, res) => {
+  
+  const condition = `id = ${req.params.id}`;
 
+  burger.delete(condition,(result)=> {
+     
+    if (result.affectedRows === 0) {
 
+      return res.status(400).end();
 
-
-
-
-
+    }
+  });
+});
 
 // Export routes for server.js to use.
 module.exports = router;
