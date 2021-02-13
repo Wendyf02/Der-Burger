@@ -2,7 +2,7 @@
 const connection = require('./connection.js');
 
 // Helper function for SQL syntax to add question marks (?, ?, ?) in query
-const printQuestionMarks = (num) => {
+function printQuestionMarks(num) {
   const arr = [];
 
   for (let i = 0; i < num; i++) {
@@ -19,14 +19,16 @@ const objToSql = (ob) => {
   // Loop through the keys and push the key/value as a string int arr
   for (const key in ob) {
     let value = ob[key];
+
     // Check to skip hidden properties
     if (Object.hasOwnProperty.call(ob, key)) {
+
       // If string with spaces, add quotations (Lana Del Grey => 'Lana Del Grey')
       if (typeof value === 'string' && value.indexOf(' ') >= 0) {
         value = `'${value}'`;
       }
       // e.g. {name: 'Lana Del Grey'} => ["name='Lana Del Grey'"]
-      // e.g. {sleepy: true} => ["sleepy=true"]
+      // e.g. {devoured: true} => ["devoured=true"]
       arr.push(`${key}=${value}`);
     }
   }
@@ -37,7 +39,7 @@ const objToSql = (ob) => {
 
 // Object for all our SQL statement functions.
 const orm = {
-  all(tableInput, cb) {
+  selectAll: (tableInput, cb) {
     const queryString = `SELECT * FROM ${tableInput};`;
     connection.query(queryString, (err, result) => {
       if (err) {
@@ -46,7 +48,8 @@ const orm = {
       cb(result);
     });
   },
-  create(table, cols, vals, cb) {
+
+insertOne: (table, cols, vals, cb) {
     let queryString = `INSERT INTO ${table}`;
 
     queryString += ' (';
@@ -66,8 +69,8 @@ const orm = {
       cb(result);
     });
   },
-  // An example of objColVals would be {name: panther, sleepy: true}
-  update(table, objColVals, condition, cb) {
+  // An example of objColVals would be {name: panther, devoured: true}
+  updateOne: (table, objColVals, condition, cb) {
     let queryString = `UPDATE ${table}`;
 
     queryString += ' SET ';
@@ -86,5 +89,5 @@ const orm = {
   },
 };
 
-// Export the orm object for the model (cat.js).
+// Export the orm object for the model (devoured.js).
 module.exports = orm;

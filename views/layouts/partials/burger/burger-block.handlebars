@@ -1,4 +1,4 @@
-<li>
+{{!-- <li>
 	{{name}}
 
 	<button class="change-devoured" data-id="{{id}}" data-newdevoured="{{devoured}}">
@@ -6,4 +6,23 @@
 	</button>
 
 	<button class="delete-burger" data-id="{{this.id}}">DELETE!</button>
-</li>
+</li> --}}
+
+ <div class="mt-4">
+         <h4>{{burger_name}}</h4>
+
+<!--Devour me button-->
+    <button class="change-devour btn border-danger" data-id="" data-newdevour="">
+		 {{#if devoured}}DEVOUR TIME!{{else}}EAT AGAIN{{/if}}
+		 
+        <img src="/assets/img/burger.png "width=25px height=25px class="mr-2"> Devour me
+    </button>
+ </div>
+
+
+   <div class="mt-4">
+      <h4 class="devoured-burger-name">{{burger_name}}</h4>
+                    
+      <!--DELETE  burger button-->
+         <button class="delete-burger btn btn-primary" data-id="{{this.id}}"><i class="far fa-trash-alt"></i> DELETE</button>
+    </div>
