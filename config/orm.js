@@ -49,7 +49,7 @@ const orm = {
     });
   },
 
-create: function (table, cols, vals, cb) {
+insertOne: function (table, cols, vals, cb) {
    const queryString = "INSERT INTO" + table;
 
     queryString += ' (';
@@ -89,6 +89,8 @@ create: function (table, cols, vals, cb) {
     });
   },
 
+
+  //delete callout
   deleteOne: function (table, key, cb) {
      const queryString = "DELETE FROM ?? WHERE ID = ?;";
 

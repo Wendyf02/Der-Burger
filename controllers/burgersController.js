@@ -7,8 +7,8 @@ const burger = require('../models/burger.js');
 
 
 // Create all our routes and set up logic within those routes where required.
-router.get('/', (req, res) => {
-  burger.all((data) => {
+router.get('/', function (req, res) {
+  burger.all(function (data) {
     const hbsObject = {
       burgers: data,
     };
@@ -22,8 +22,8 @@ router.get('/', (req, res) => {
 router.post('/api/burgers', function (req, res) {
 
   burger.create(
-    ['burger_name'],
-    ['devoured'], [req.body.burger_name], 
+    ['burger_name','devoured'], 
+    [req.body.burger_name, req.body.devoured], 
     function (result) {
 
     // Send back the ID of the new quote
@@ -70,7 +70,7 @@ router.delete('/api/burgers/:id', function (req, res)  {
     }
 
   });
-  
+
 });
 
 // Export routes for server.js to use.
