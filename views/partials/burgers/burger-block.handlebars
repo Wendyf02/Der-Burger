@@ -1,21 +1,22 @@
 {{!-- <li>
 	{{name}}
 
-	<button class="change-devoured" data-id="{{id}}" data-newdevoured="{{devoured}}">
+	<button class="change-sleep" data-id="{{id}}" data-newsleep="{{sleep}}">
 		{{#if sleep}}SLEEP TIME!{{else}}WAKE UP!{{/if}}
 	</button>
 
-	<button class="delete-burger" data-id="{{this.id}}">DELETE!</button>
+	<button class="delete-cat" data-id="{{this.id}}">DELETE!</button>
 </li> --}}
 
- <div class="mt-4">
+
+<div class="mt-4">
          <h4>{{burger_name}}</h4>
 
 <!--Devour me button-->
     <button class="change-devour btn border-danger" data-id="" data-newdevour="">
 		 {{#if devoured}}DEVOUR TIME!{{else}}EAT AGAIN{{/if}}
        
-		<i class='fas fa-hamburger' style='font-size:34px;color:red'></i> Devour me
+		<i class="fas fa-hamburger" style="font-size:24px;color:red"></i> Devour me
     </button>
  </div>
 
@@ -24,5 +25,5 @@
       <h4 class="devoured-burger-name">{{burger_name}}</h4>
                     
       <!--DELETE  burger button-->
-         <button class="delete-burger btn btn-primary" data-id="{{this.id}}"><i class="far fa-trash-alt"></i> DELETE</button>
+         <button class="delete-burger btn btn-danger" data-id="{{this.id}}"><i class="far fa-trash-alt"></i> DELETE</button>
     </div>
