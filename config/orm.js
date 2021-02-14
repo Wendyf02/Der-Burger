@@ -49,7 +49,7 @@ const orm = {
     });
   },
 
-insertOne: function (table, cols, vals, cb) {
+ insertOne: function (table, cols, vals, cb) {
    const queryString = "INSERT INTO" + table;
 
     queryString += ' (';
@@ -91,20 +91,40 @@ insertOne: function (table, cols, vals, cb) {
 
 
   //delete callout
-  deleteOne: function (table, key, cb) {
-     const queryString = "DELETE FROM ?? WHERE ID = ?;";
+//   deleteOne: function (table, key, cb) {
+//      const queryString = "DELETE FROM ?? WHERE ID = ?;";
 
-     connection.query(queryString, [table, key], (err, result) => {
+//      connection.query(queryString, [table, key], (err, result) => {
 
-      if (err)  throw err;
-       cb(result);
+//       if (err)  throw err;
+//        cb(result);
 
-    });
+//     });
   
-  },
+//   },
 
+// 
+// };
+
+delete0ne: function (table, condition, cb) {
+  let queryString = `DELETE FROM ${table}`;
+  queryString += ' WHERE ';
+  queryString += condition;
+
+  connection.query(queryString, (err, result) => {
+    if (err) {
+      throw err;
+    }
+
+    cb(result);
+  });
+},
 
 };
+
+
+
+
 
 // Export the orm object for the model (devoured.js).
 module.exports = orm;
