@@ -3,17 +3,17 @@ const connection = require('./connection.js');
 
 // Helper function for SQL syntax to add question marks (?, ?, ?) in query
 function printQuestionMarks(num) {
-  const arr = [];
+ const arr = [];
 
-  for (let i = 0; i < num; i++) {
-    arr.push('?');
+  for (var i = 0; i < num; i++) {
+    arr.push("?");
   }
 
   return arr.toString();
 };
 
 // Helper function to convert object key/value pairs to SQL syntax
-const objToSql = (ob) => {
+ function objToSql(ob){
   const arr = [];
 
   // Loop through the keys and push the key/value as a string int arr
@@ -24,12 +24,12 @@ const objToSql = (ob) => {
     if (Object.hasOwnProperty.call(ob, key)) {
 
       // If string with spaces, add quotations (Lana Del Grey => 'Lana Del Grey')
-      if (typeof value === 'string' && value.indexOf(' ') >= 0) {
-        value = `'${value}'`;
+      if (typeof value === "string" && value.indexOf("") >= 0) {
+        value = " " + value + "";
       }
       // e.g. {name: 'Lana Del Grey'} => ["name='Lana Del Grey'"]
       // e.g. {devoured: true} => ["devoured=true"]
-      arr.push(`${key}=${value}`);
+      arr.push(key  + "=" + value);
     }
   }
 
@@ -39,9 +39,9 @@ const objToSql = (ob) => {
 
 // Object for all our SQL statement functions.
 const orm = {
-  selectAll: (tableInput, cb) {
-    const queryString = `SELECT * FROM ${tableInput};`;
-    connection.query(queryString, (err, result) => {
+  selectAll: function (tableInput, cb) {
+   const queryString = "SELECT * FROM " + tableInput + ";";
+    connection.query(queryString, function (err, result) {
       if (err) {
         throw err;
       }
@@ -49,8 +49,8 @@ const orm = {
     });
   },
 
-insertOne: (table, cols, vals, cb) {
-    let queryString = `INSERT INTO ${table}`;
+create: function (table, cols, vals, cb) {
+   const queryString = "INSERT INTO" + table;
 
     queryString += ' (';
     queryString += cols.toString();
@@ -61,7 +61,7 @@ insertOne: (table, cols, vals, cb) {
 
     console.log(queryString);
 
-    connection.query(queryString, vals, (err, result) => {
+    connection.query(queryString, vals, function (err, result) {
       if (err) {
         throw err;
       }
@@ -70,8 +70,8 @@ insertOne: (table, cols, vals, cb) {
     });
   },
   // An example of objColVals would be {name: panther, devoured: true}
-  updateOne: (table, objColVals, condition, cb) {
-    let queryString = `UPDATE ${table}`;
+  updateOne: function (table, objColVals, condition, cb) {
+   const  queryString = "UPDATE" + table;
 
     queryString += ' SET ';
     queryString += objToSql(objColVals);
@@ -79,14 +79,29 @@ insertOne: (table, cols, vals, cb) {
     queryString += condition;
 
     console.log(queryString);
-    connection.query(queryString, (err, result) => {
+    connection.query(queryString, function (err, result) {
       if (err) {
         throw err;
       }
 
       cb(result);
+
     });
   },
+
+  deleteOne: function (table, key, cb) {
+     const queryString = "DELETE FROM ?? WHERE ID = ?;";
+
+     connection.query(queryString, [table, key], (err, result) => {
+
+      if (err)  throw err;
+       cb(result);
+
+    });
+  
+  },
+
+
 };
 
 // Export the orm object for the model (devoured.js).
