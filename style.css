@@ -1,11 +1,14 @@
+
+/*-------Body----*/
+
 body {
     background-image: url("public/assets/img/wood_plank_old.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-/*-------Body----*/
-body{
+
+body {
    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
    font-size: 20px;
 }
@@ -17,6 +20,10 @@ body{
     background-color: rgb(66, 66, 64);
     max-width: 900px;
     margin: auto;
+    box-shadow: 0px 0px 10px 3px;
+    margin-top: 20px;
+    
+
 } 
 
 #title {
@@ -40,12 +47,13 @@ body{
 #submit-card {
      max-width: 900px;
      margin: auto;
-
+    margin-top: 20px;
+    
 }
 
 #submit-btn {
     padding: 10px;
-    margin: 15px;
+    margin: 10px;
 }
 /*-------Devoured cards----*/
 
@@ -72,30 +80,31 @@ body{
 .devoured-card  {
     border-style: solid;
     border-color:  rgb(66, 66, 64);
+    box-shadow:rgb(201, 199, 199)
 }
-
-
-
-
-
 
 
 /*-------Footer----*/
 
 .footer-body {
-   background-color: rgb(66, 66, 64);
-   justify-content: center;
-   max-width: 900px;
-   margin: auto;
-  
+    background-image: url("public/assets/img/VeggieBurger2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* width: 200px; */
+    /* background-color: rgb(66, 66, 64); */
+    
 
 }
 
-.title-footer1 {
-   justify-content: center;
-    font-size: 20px;
+.card-footer {
+    justify-content: center;
+    max-width:900px;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 10px;
 
 }
+
 
 li {
     padding: 2px;
