@@ -1,7 +1,7 @@
 /*-------Body----*/
 
 body {
-  background-image: url("public/assets/img/wood_plank_old.jpg");
+  background-image: url("/assets/img/wood_plank_old.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -90,7 +90,7 @@ body {
 
 .footer-body{ 
   border-radius: 25px;
-  background-image: url("public/assets/img/veggieburger2.png");
+  background-image: url("/assets/img/veggieburger2.png");
   background-repeat: no-repeat;
   background-size: cover;
   /* width: 200px; */

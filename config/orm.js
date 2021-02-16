@@ -50,7 +50,7 @@ const orm = {
   },
 
  insertOne: function (table, cols, vals, cb) {
-   const queryString = "INSERT INTO" + table;
+   let queryString = "INSERT INTO " + table;
 
     queryString += ' (';
     queryString += cols.toString();
@@ -71,7 +71,7 @@ const orm = {
   },
   // An example of objColVals would be {name: panther, devoured: true}
   updateOne: function (table, objColVals, condition, cb) {
-   const  queryString = "UPDATE" + table;
+   let queryString = "UPDATE" + table;
 
     queryString += ' SET ';
     queryString += objToSql(objColVals);
@@ -89,22 +89,6 @@ const orm = {
     });
   },
 
-
-  //delete callout
-//   deleteOne: function (table, key, cb) {
-//      const queryString = "DELETE FROM ?? WHERE ID = ?;";
-
-//      connection.query(queryString, [table, key], (err, result) => {
-
-//       if (err)  throw err;
-//        cb(result);
-
-//     });
-  
-//   },
-
-// 
-// };
 
 delete0ne: function (table, condition, cb) {
   let queryString = `DELETE FROM ${table}`;
