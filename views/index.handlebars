@@ -79,7 +79,7 @@
                          
                                {{#each burgers}}
                                {{#unless devoured}}
-                               {{> burgers/burger-block devoured=true}}
+                               {{> burgers/burger-block devour=false}}
                                {{/unless}}
                                {{/each}} 
                             
@@ -98,7 +98,7 @@
                       
                             {{#each burgers}}
                             {{#if devoured}}
-                            {{> burgers/burger-block devoured=false}}
+                            {{> burgers/burger-devoured devour=true}}
                             {{/if}}
                             {{/each}} 
                         

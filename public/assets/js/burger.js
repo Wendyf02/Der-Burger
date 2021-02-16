@@ -38,21 +38,21 @@ $ (document).ready(function () {
  $(".change-devour").on("click", function(event){
 
   var id = $(this).data("id");
-  var devoured = $(this).data("devoured");
+  var newDevour = $(this).data("newdevour");
 
-  var devouredState = {
-    devoured: devoured,
+  var newDevouredState = {
+    devoured: "true"
   };
   
   //send the put request using ajax.
   $.ajax("/api/burgers/" + id, {
     
     type: "PUT",
-    data: devouredState
+    data: newDevouredState
 
   }).then(
      function() {
-      console.log("changed devoured to" , dovoured);
+      console.log("changed devour to" , newDevour);
       location.reload();
      }
 
@@ -60,11 +60,26 @@ $ (document).ready(function () {
 
  });
 
+  
+  $(".delete-burger").on("click", function(event) {
+     var id = $(this).data("id");
 
+     //send Delete request
+     $.ajax("/api/burgers/" + id, {
+        
+      type:  "DELETE",
 
+     }).then(
+       function() {
+         console.log("deleted burger", id);
 
+         // Reload the page
+        location.reload();
+       }
 
+     );
 
+  })
 
 });
 
