@@ -91,7 +91,7 @@ const orm = {
   },
 
 
-delete0ne: function (table, condition, cb) {
+delete: function (table, condition, cb) {
   let queryString = `DELETE FROM ${table}`;
   queryString += ' WHERE ';
   queryString += condition;

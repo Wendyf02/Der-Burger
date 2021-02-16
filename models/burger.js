@@ -25,7 +25,7 @@ const burger = {
 
 // Delete burger from database
 delete(condition, cb) {
-  orm.deleteOne('burgers', condition, function (res) {
+  orm.delete('burgers', condition, function (res) {
     cb(res);
   });
 

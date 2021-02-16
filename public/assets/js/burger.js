@@ -30,6 +30,27 @@ $ (document).ready(function () {
       );
   });
 
+  // Delete burger on click
+  $(".delete-burger").on("click", function (event) {
+    var id = $(this).data("id");
+
+    //send Delete request
+    $.ajax("/api/burgers/" + id, {
+       
+     type:  "DELETE",
+
+    }).then(
+      function() {
+
+        console.log("deleted burger", id);
+
+        // Reload the page
+       location.reload();
+      }
+
+    );
+
+ })
 
 
 
@@ -61,26 +82,7 @@ $ (document).ready(function () {
  });
 
   
-  $(".delete-burger").on("click", function(event) {
-     var id = $(this).data("id");
-
-     //send Delete request
-     $.ajax("/api/burgers/" + id, {
-        
-      type:  "DELETE",
-
-     }).then(
-       function() {
-         console.log("deleted burger", id);
-
-         // Reload the page
-        location.reload();
-       }
-
-     );
-
-  })
-
+ 
 });
 
 
