@@ -115,65 +115,67 @@ $ (document).ready(function () {
 
 
     //  Send POST request to create a new quote
-      fetch('/api/burgers', {
+      $.ajax("/api/burgers", {
         method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-
-        // make sure to serialize the JSON body
-        body: JSON.stringify(newBurger),
-      }).then(() => {
-        // Empty the form
+        data: newBurger 
         
-          $("#burgerToDevour").val("");
+      }).then( 
+        function () {
+      
+          // $("#burgerToDevour").val("");
 
         // Reload the page so the user can see the new quote
-        console.log('Created a new burger!');
+        console.log("Created a new burger");
+
         location.reload();
-      });
+      }
+      );
     });
+
+
 
 
 // UPDATE
-  const changeDevouredBtns = document.querySelectorAll('.change-devour');
+  // const changeDevouredBtns = document.querySelectorAll('.change-devour');
 
   // Set up the event listener for the create button
-  if (changeDevouredBtns) {
-    changeDevouredBtns.forEach((button) => {
-      button.addEventListener('click', (e) => {
-        // Grabs the id of the element that goes by the name, "id"
-        const id = e.target.getAttribute('data-id');
-        console.log(id)
-        const newDevoured = e.target.getAttribute('data-newdevoured');
+  // if (changeDevouredBtns) {
+  //   changeDevouredBtns.forEach((button) => {
+  //     button.addEventListener('click', (e) => {
+  //       // Grabs the id of the element that goes by the name, "id"
+  //       const id = e.target.getAttribute('data-id');
+  //       // console.log(id)
+  //       const newDevoured = e.target.getAttribute('data-newdevoured');
 
-        const newDevouredState = {
-          devoured: newDevoured,
-        };
+  //       const newDevouredState = {
+  //         devoured: newDevoured,
+  //       };
 
-        fetch(`/api/burgers/${id}`, {
-          method: 'PUT',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-          },
+  //       fetch(`/api/burgers/${id}`, {
+  //         method: 'PUT',
+  //         headers: {
+  //           Accept: 'application/json',
+  //           'Content-Type': 'application/json',
+  //         },
 
-          // make sure to serialize the JSON body
-          body: JSON.stringify(newDevouredState),
-        }).then((response) => {
-          // Check that the response is all good
-          // Reload the page so the user can see the new quote
-          if (response.ok) {
-            console.log(`changed devoured to: ${newDovoured}`);
-            location.reload('/');
-          } else {
-            alert('something went wrong!');
-          }
-        });
-      });
-    });
-  }
+  //         // make sure to serialize the JSON body
+  //         body: JSON.stringify(newDevouredState),
+  //       }).then((response) => {
+  //         // Check that the response is all good
+  //         // Reload the page so the user can see the new quote
+  //         if (response.ok) {
+  //           console.log(`changed devoured to: ${newDovoured}`);
+  //           location.reload('/');
+  //         } else {
+  //           alert('something went wrong!');
+  //         }
+  //       });
+  //     });
+  //   });
+  // }
+ //click event for "devour me button."
+
+
 
 });
 
