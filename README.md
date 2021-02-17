@@ -59,5 +59,13 @@
   ## Questions
 
   Contact me:   
-  Github: https://github.com/wendyf02   
+  Github: https://github.com/Wendyf02/Der-Burger  
   Email: cammomila444@gmail.com
+
+ ![GitHub](public/assets/img/burger1.png)
+
+ ![GitHub](public/assets/img/burger2.png)
+
+ ![GitHub](public/assets/img/burger3.png)
+
+ ![GitHub](public/assets/img/buger4.png)
